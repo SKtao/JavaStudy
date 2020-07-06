@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit;
  * @description:
  * @date 2020/7/6
  **/
-public class T01_DeadLock {
+public class T06_DeadLockTest {
     static class T implements Runnable {
         private final Object lock1;
         private final Object lock2;

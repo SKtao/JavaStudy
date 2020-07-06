@@ -1,0 +1,2 @@
+1.threadlocal内存泄漏问题？
+2.spring事务管理中threadLocal的作用？

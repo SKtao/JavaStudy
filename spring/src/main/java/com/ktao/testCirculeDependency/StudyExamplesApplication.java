@@ -17,6 +17,4 @@ public class StudyExamplesApplication {
 //        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(StudyExamplesApplication.class);
 //        Service1 service1 = (Service1) applicationContext.getBean("service1");
     }
-
-
 }

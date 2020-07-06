@@ -17,7 +17,7 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
  * @date 2020/7/6
  **/
 @Slf4j
-public class T05_ReentrantReadWriteLock {
+public class T08_ReentrantReadWriteLockTest {
     /**
      * 模拟锁缓存
      */
