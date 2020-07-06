@@ -8,11 +8,11 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 /**
- * CyclicBarrier(栅栏)
- * @author kongtao
- * @version 1.0
- * @description:
- * @date 2020/7/6
+ * CyclicBarrier(栅栏)，可用于限流
+ * 复杂操作:
+ *   1.数据库
+ *   2.网络
+ *   3.文件
  **/
 @Slf4j
 public class T02_CyclicBarrier {
