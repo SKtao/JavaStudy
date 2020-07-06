@@ -3,6 +3,8 @@ package com.ktao.util;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * CountDownLatch使用
@@ -12,7 +14,9 @@ import java.util.concurrent.CountDownLatch;
  * @date 2020/7/6
  **/
 @Slf4j
-public class T01_TestCountDownLatch {
+public class T01_CountDownLatch {
+    private static final Integer THREADS = 10;
+
     public static void main(String[] args) {
         usingCountDownLatch();
         usingJoin();
@@ -43,11 +47,10 @@ public class T01_TestCountDownLatch {
     }
 
     private static void usingCountDownLatch() {
-        Thread[] threads = new Thread[10];
-        CountDownLatch latch = new CountDownLatch(threads.length);
-
-        for (int i = 0; i < threads.length; i++) {
-            threads[i] = new Thread(() -> {
+        ExecutorService executorService = Executors.newFixedThreadPool(10);
+        CountDownLatch latch = new CountDownLatch(THREADS);
+        for (int i = 0; i < THREADS; i++) {
+            executorService.submit(() -> {
                 int result = 0;
                 for (int j = 1; j <= 100; j++) {
                     result += j;
@@ -56,13 +59,12 @@ public class T01_TestCountDownLatch {
                 latch.countDown();
             });
         }
-
-        for (int i = 0; i < threads.length; i++) threads[i].start();
         try {
             latch.await();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
         log.info("END COUNTDOWN");
+        executorService.shutdown();
     }
 }
