@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd">
+
+
+    <bean id="serviceA" class="com.ktao.study.spring.beans.ServiceA">
+    </bean>
+
+<!--    <bean id="serviceB" class="com.ktao.study.spring.beans.ServiceB" depends-on="serviceA">-->
+    <bean id="serviceB" class="com.ktao.study.spring.beans.ServiceB">
+
+    <!--         setter注入【提供setter方法】-->
+        <property name="serviceA" ref="serviceA"/>
+<!--        &lt;!&ndash; 构造注入【提供构造方法】 &ndash;&gt;-->
+<!--        <constructor-arg ref="serviceA"/>-->
+    </bean>
+
+<!--    <bean id="helloService" class="com.ktao.study.spring.beans.HelloService">-->
+<!--    </bean>-->
+<!--    <bean id="serviceAspect" class="com.ktao.study.spring.aop.ServiceAspect"/>-->
+
+
+<!--    <aop:config>-->
+<!--        <aop:pointcut id="aspect" expression="execution(* com.ktao.study.spring.beans.*.*(..)))"/>-->
+<!--        <aop:aspect ref="serviceAspect">-->
+<!--            <aop:before method="log" pointcut-ref="aspect"/>-->
+<!--        </aop:aspect>-->
+<!--    </aop:config>-->
+
+
+</beans>
