@@ -3,6 +3,7 @@ package com.ktao.threadpool_;
 import java.util.concurrent.*;
 
 /**
+ * ThreadPoolExecutor自定义参数模拟
  * @author kongtao
  * @version 1.0
  * @description:
@@ -16,7 +17,7 @@ public class T01_ThreadPoolExecutor {
                 10,
                 1,
                 TimeUnit.SECONDS,
-                new ArrayBlockingQueue<>(10),
+                new ArrayBlockingQueue<>(100),
                 new ThreadPoolExecutor.DiscardOldestPolicy());
 
         for (int i = 0; i < 100; i++) {
