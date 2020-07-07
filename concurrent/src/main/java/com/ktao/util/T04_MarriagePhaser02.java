@@ -5,10 +5,10 @@ import java.util.concurrent.Phaser;
 import java.util.concurrent.TimeUnit;
 
 /**
- * @author kongtao
- * @version 1.0
- * @description:
- * @date 2020/7/6
+ * Phaser：
+ * CountDownLatch和CyclicBarrier的综合体，是栅栏，但不是循环的，而是分阶段的，每个阶段都有不同的线程可以走，但有的线程到了某个阶段就停止了。
+ * 每个阶段可以有不同数量的线程等待前进到另一个阶段。线程通过调用 arriAndAwaitAdvance() 来阻止它到达屏障，这是一种阻塞方法。
+ * 当数量到达等于注册的数量时，程序的执行将继续，并且数量将增加。当线程完成其工作时，我们应该调用arrivalAndDeregister（）方法来表示在此特定阶段不再考虑当前线程。
  **/
 public class T04_MarriagePhaser02 {
     static Random r = new Random();
