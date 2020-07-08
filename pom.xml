@@ -11,6 +11,7 @@
     <!--模块-->
     <modules>
         <module>concurrent</module>
+        <module>jvm</module>
     </modules>
     <!--版本-->
     <properties>

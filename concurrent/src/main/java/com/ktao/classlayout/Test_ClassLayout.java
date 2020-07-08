@@ -10,6 +10,8 @@ import org.openjdk.jol.info.ClassLayout;
  * @description:
  * @date 2020/7/5
  **/
+
+// 面试题：对象在内存中的内存布局
 class Test_ClassLayout {
 
     @Data
@@ -17,6 +19,7 @@ class Test_ClassLayout {
         private String name;
         private Integer age;
     }
+
     public static void main(String[] args) {
 //        Object o = new Object();
         User o = new User();
