@@ -4,11 +4,11 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd">
 
 
-    <bean id="serviceA" class="com.ktao.study.spring.beans.ServiceA">
+    <bean id="serviceA" class="com.ktao.spring.beans.ServiceA">
     </bean>
 
 <!--    <bean id="serviceB" class="com.ktao.study.spring.beans.ServiceB" depends-on="serviceA">-->
-    <bean id="serviceB" class="com.ktao.study.spring.beans.ServiceB">
+    <bean id="serviceB" class="com.ktao.spring.beans.ServiceB">
 
     <!--         setter注入【提供setter方法】-->
         <property name="serviceA" ref="serviceA"/>

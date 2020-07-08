@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit;
 public class T02_Sleep_Yield_Join {
 
     private static Object lock = new Object();
-    private static int count = 0;
+
     /**
      * Sleep：
      * Thread.sleep(0)：触发操作系统立刻重新进行一次CPU竞争，重新计算优先级
@@ -48,24 +48,39 @@ public class T02_Sleep_Yield_Join {
     }
 
     /**
-     * Yield:
+     * 加先打synchronized：印完A，再打印B，说明yield不会释放锁，只会释放CPU执行权
+     * 不加锁：交替打印
      */
     static void testYield() {
         new Thread(() -> {
-            for (int i = 1; i <= 100; i++) {
-                System.out.println("A：" + i);
-                if (i % 10 == 0) {
-                    Thread.yield();
+//            synchronized (lock) {
+                for (int i = 1; i <= 10; i++) {
+                    try {
+                        TimeUnit.SECONDS.sleep(1);
+                        System.out.println("A：" + i);
+                        if (i % 10 == 0) {
+                            Thread.yield();
+                        }
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                 }
-            }
+//            }
         }).start();
 
         new Thread(() -> {
-            for (int i = 1; i <= 100; i++) {
-                System.out.println("B：" + i);
-                if (i % 10 == 0) {
-                    Thread.yield();
-                }
+//            synchronized (lock) {
+                for (int i = 1; i <= 10; i++) {
+                    try {
+                        TimeUnit.SECONDS.sleep(1);
+                        System.out.println("B：" + i);
+                        if (i % 10 == 0) {
+                            Thread.yield();
+                        }
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+//                }
             }
         }).start();
     }
@@ -109,8 +124,8 @@ public class T02_Sleep_Yield_Join {
     }
 
     public static void main(String[] args) throws InterruptedException {
-        testSleep();
-//        testYield();
+//        testSleep();
+        testYield();
 //        testJoin();
     }
 }
