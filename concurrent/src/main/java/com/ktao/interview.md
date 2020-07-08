@@ -11,7 +11,7 @@
 - 对象在内存中的内存布局 - 美团 顺丰
 - DCL单例为什么要加volatile - 美团
 - 解释一下锁的4种状态 - 顺丰
-- Object o = new Object()在内存中占了多少字节 - 顺丰
+- Object o = new Object()在内存中占了多少字节 - 顺丰  (16字节)
 - 请描述synchronized和ReentrantLock的异同 - 顺丰
 - 聊聊你对as-if-serial和happens-before语义的理解 - 京东
 - 你了解ThreadLocal吗？你知道ThreadLocal中如何解决内存泄漏问题吗？ - 京东 阿里

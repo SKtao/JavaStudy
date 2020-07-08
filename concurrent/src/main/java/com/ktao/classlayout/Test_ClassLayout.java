@@ -11,7 +11,7 @@ import org.openjdk.jol.info.ClassLayout;
  * @date 2020/7/5
  **/
 
-// 面试题：对象在内存中的内存布局
+// 面试题：1.描述对象在内存中的内存布局? 2. Object o = new Object() 占多大内存？
 class Test_ClassLayout {
 
     @Data
@@ -20,9 +20,13 @@ class Test_ClassLayout {
         private Integer age;
     }
 
+
     public static void main(String[] args) {
-//        Object o = new Object();
-        User o = new User();
+        // classPointer：开启指针压缩(4字节)，不开启指针压缩(8字节)
+        // padding：对齐填充，保证对象的大小满足8的整数倍
+        // markword(64 bit)：哈希code、锁状态、gc年龄等
+//        Object o = new Object(); //【16字节 = markword(8字节) + classPointer(4字节) + padding(4字节) 】
+        User o = new User(); //【24字节 = markword(8字节) + classPointer(4字节) + instance(8字节) + padding(4字节) 】
         System.out.println(ClassLayout.parseInstance(o).toPrintable());
         /**
          * com.ktao.classlayout.Test_ClassLayout$User object internals:
